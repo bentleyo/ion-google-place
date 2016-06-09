@@ -249,8 +249,7 @@ angular.module('ion-google-place', ['uiGmapgoogle-maps'])
                             var req = scope.geocodeOptions || {};
                             req.address = query;
                             autoCompleteService.getPlacePredictions({
-                                input: query,
-                                types: ['(cities)']
+                                input: query
                             }, function (predictions, status) {
                                 if (status != google.maps.places.PlacesServiceStatus.OK) {
                                     $log.warn(status);
