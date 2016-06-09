@@ -1,7 +1,7 @@
 angular.module('ion-google-place', ['uiGmapgoogle-maps'])
     .directive('ionGooglePlace',
     function ($ionicTemplateLoader, $ionicBackdrop, $ionicPlatform, $q, $timeout, $rootScope, $document,
-              uiGmapGoogleMapApi, Card, $log, $ionicPopup) {
+              uiGmapGoogleMapApi, $log, $ionicPopup) {
         return {
             require: '?ngModel',
             restrict: 'E',
@@ -134,7 +134,6 @@ angular.module('ion-google-place', ['uiGmapgoogle-maps'])
                                 $ionicBackdrop.release();
                             })
                             .catch(function (error) {
-                                Card.sorryCurrentLocationCard(scope);
                                 ngModel.$setViewValue(null);
                                 ngModel.$render();
                                 el.element.css('display', 'none');
