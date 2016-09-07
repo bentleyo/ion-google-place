@@ -9,7 +9,8 @@ angular.module('ion-google-place', ['uiGmapgoogle-maps'])
             replace: true,
             scope: {
                 ngModel: '=?',
-                geocodeOptions: '='
+                geocodeOptions: '=',
+                geolocationDisabled: '=?' 
             },
             link: function (scope, element, attrs, ngModel) {
                 var unbindBackButtonAction;
@@ -40,7 +41,7 @@ angular.module('ion-google-place', ['uiGmapgoogle-maps'])
                     '</div>',
                     '<ion-content class="has-header has-header" ng-click="onBackdropClicked()">',
                     '<ion-list>',
-                    '<ion-item type="item-text-wrap" class="item-location item-geolocation" ng-click="setCurrentLocation()" ng-if="geolocationAvailable">',
+                    '<ion-item type="item-text-wrap" class="item-location item-geolocation" ng-click="setCurrentLocation()" ng-if="geolocationAvailable && !geolocationDisabled">',
                     'Use current location',
                     '</ion-item>',
                     '<ion-item ng-repeat="location in locations" type="item-text-wrap" ng-click="selectLocation(location)">',
